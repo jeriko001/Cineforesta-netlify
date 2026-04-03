@@ -34,14 +34,17 @@ const STYLE = `
   .app{min-height:100vh;width:100%;max-width:100vw;overflow-x:hidden;background:var(--beige);
     background-image:radial-gradient(ellipse at 10% 0%,rgba(90,138,53,0.08) 0%,transparent 60%),radial-gradient(ellipse at 90% 100%,rgba(45,80,22,0.07) 0%,transparent 60%);}
 
-  .landing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:40px 20px;width:100%;}
+  /* LANDING */
+  .landing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:40px 20px;width:100%;}
   .landing-logo{font-size:2.8rem;}
   .landing-title{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--forest);text-align:center;line-height:1.1;}
   .landing-title span{font-style:italic;color:var(--forest-light);display:block;font-size:.95rem;margin-top:5px;letter-spacing:.08em;font-weight:400;}
   .landing-sub{color:var(--text-light);font-size:.93rem;text-align:center;max-width:310px;line-height:1.65;}
-  .landing-box{background:white;border-radius:20px;box-shadow:var(--shadow);padding:26px 28px;display:flex;flex-direction:column;gap:13px;width:100%;max-width:350px;}
+  .landing-box{background:white;border-radius:20px;box-shadow:var(--shadow);padding:24px 26px;display:flex;flex-direction:column;gap:12px;width:100%;max-width:350px;}
   .landing-box-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--forest);}
-  .create-btn{background:var(--forest);color:var(--beige);border:none;border-radius:32px;padding:13px 28px;font-family:'Lato',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:background .2s,transform .15s;width:100%;}
+  .name-input{background:var(--beige);border:2px solid var(--beige-dark);border-radius:32px;padding:10px 15px;font-family:'Lato',sans-serif;font-size:.86rem;color:var(--text-dark);outline:none;transition:border-color .2s;width:100%;}
+  .name-input:focus{border-color:var(--forest-light);}
+  .create-btn{background:var(--forest);color:var(--beige);border:none;border-radius:32px;padding:12px 28px;font-family:'Lato',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:background .2s,transform .15s;width:100%;}
   .create-btn:hover{background:var(--forest-mid);transform:translateY(-1px);}
   .create-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
   .divider{display:flex;align-items:center;gap:10px;color:var(--text-light);font-size:.76rem;}
@@ -53,8 +56,20 @@ const STYLE = `
   .join-btn:hover{background:#ddd4be;}
   .error-msg{color:#b03020;font-size:.78rem;}
 
+  /* LISTE RECENTI */
+  .recent-section{width:100%;max-width:350px;}
+  .recent-title{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--text-light);margin-bottom:8px;padding-left:4px;}
+  .recent-list{display:flex;flex-direction:column;gap:8px;}
+  .recent-item{background:white;border-radius:14px;padding:11px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;}
+  .recent-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);}
+  .recent-icon{font-size:1.3rem;flex-shrink:0;}
+  .recent-name{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--text-dark);font-weight:600;}
+  .recent-code{font-size:.72rem;color:var(--text-light);font-family:monospace;letter-spacing:.1em;margin-top:2px;}
+  .recent-del{margin-left:auto;background:none;border:none;color:var(--text-light);cursor:pointer;font-size:1rem;padding:4px;flex-shrink:0;}
+
+  /* HEADER */
   header{background:var(--forest);padding:17px 18px 13px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 18px rgba(45,80,22,.18);width:100%;}
-  .header-leaf{font-size:1.3rem;flex-shrink:0;}
+  .header-leaf{font-size:1.3rem;flex-shrink:0;cursor:pointer;}
   .header-title{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--beige);letter-spacing:.03em;line-height:1;min-width:0;}
   .header-title span{color:var(--beige-dark);font-style:italic;font-size:.76rem;display:block;font-weight:400;margin-top:2px;letter-spacing:.07em;}
   .share-pill{margin-left:auto;display:flex;align-items:center;gap:6px;background:rgba(245,239,224,.12);border:1.5px solid rgba(245,239,224,.25);border-radius:32px;padding:6px 11px;cursor:pointer;transition:background .2s;flex-shrink:0;}
@@ -62,18 +77,25 @@ const STYLE = `
   .share-pill-label{color:var(--beige);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
   .share-code{color:var(--beige-dark);font-size:.83rem;font-family:monospace;letter-spacing:.16em;font-weight:700;}
 
+  /* TABS */
+  .tabs{display:flex;gap:8px;padding:14px 16px 0;}
+  .tab{background:transparent;border:2px solid var(--beige-dark);border-radius:32px;padding:7px 16px;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;color:var(--text-light);cursor:pointer;transition:all .2s;}
+  .tab.active{background:var(--forest);border-color:var(--forest);color:var(--beige);}
+  .tab:hover:not(.active){border-color:var(--forest-light);color:var(--forest);}
+
   .sync-info{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--text-light);padding:7px 16px 0;flex-wrap:wrap;}
   .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--forest-light);animation:pulse 2.5s infinite;flex-shrink:0;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-  .search-wrap{padding:18px 16px 0;max-width:500px;}
+  /* SEARCH */
+  .search-wrap{padding:14px 16px 0;max-width:500px;}
   .search-row{display:flex;gap:8px;}
   .search-input{flex:1;background:white;border:2px solid var(--beige-dark);border-radius:32px;padding:11px 17px;font-family:'Lato',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s,box-shadow .2s;min-width:0;}
   .search-input:focus{border-color:var(--forest-light);box-shadow:0 0 0 3px rgba(90,138,53,.12);}
   .search-btn{background:var(--forest);color:var(--beige);border:none;border-radius:32px;padding:11px 18px;font-family:'Lato',sans-serif;font-size:.83rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:background .2s,transform .15s;flex-shrink:0;}
   .search-btn:hover{background:var(--forest-mid);transform:translateY(-1px);}
   .search-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
-  .search-results{background:white;border:1.5px solid var(--beige-dark);border-radius:16px;margin-top:8px;overflow:hidden;box-shadow:var(--shadow);animation:fadeIn .2s ease;}
+  .search-results{background:white;border:1.5px solid var(--beige-dark);border-radius:16px;margin-top:8px;overflow-y:auto;max-height:320px;box-shadow:var(--shadow);animation:fadeIn .2s ease;}
   .result-item{display:flex;align-items:center;gap:11px;padding:10px 13px;cursor:pointer;border-bottom:1px solid var(--beige-dark);transition:background .15s;}
   .result-item:last-child{border-bottom:none;}
   .result-item:hover{background:var(--beige-mid);}
@@ -83,6 +105,7 @@ const STYLE = `
   .result-year{font-size:.72rem;color:var(--text-light);margin-top:2px;}
   .no-results{padding:11px 13px;color:var(--text-light);font-style:italic;font-size:.84rem;}
 
+  /* GRID */
   .section-label{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--forest);padding:22px 16px 11px;display:flex;align-items:center;gap:9px;font-weight:600;}
   .section-label::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,var(--forest-faint),transparent);margin-left:6px;}
   .count-badge{background:var(--forest-faint);color:var(--forest-mid);border:1px solid rgba(45,80,22,.15);font-family:'Lato',sans-serif;font-size:.69rem;font-weight:700;padding:2px 8px;border-radius:12px;letter-spacing:.05em;flex-shrink:0;}
@@ -128,8 +151,8 @@ function genCode() {
   return Array.from({length:6}, ()=>chars[Math.floor(Math.random()*chars.length)]).join("");
 }
 
-async function saveList(code, films) {
-  await set(ref(db, "lists/" + code), films);
+async function saveList(code, data) {
+  await set(ref(db, "lists/" + code), data);
 }
 
 async function loadList(code) {
@@ -138,32 +161,49 @@ async function loadList(code) {
   return null;
 }
 
-async function searchFilms(query) {
+async function searchFilms(query, type) {
   try {
-    const url = `${TMDB_BASE}/search/movie?api_key=${TMDB_KEY}&query=${encodeURIComponent(query)}&language=it-IT&page=1`;
+    const endpoint = type === "film" ? "movie" : "tv";
+    const url = `${TMDB_BASE}/search/${endpoint}?api_key=${TMDB_KEY}&query=${encodeURIComponent(query)}&language=it-IT&page=1`;
     const res = await fetch(url);
     const data = await res.json();
-    return (data.results||[]).slice(0,6).map(m=>({
+    return (data.results||[]).slice(0,12).map(m=>({
       id: m.id,
-      title: m.title,
-      original_title: m.original_title,
-      year: m.release_date ? m.release_date.slice(0,4) : "—",
+      title: m.title || m.name,
+      original_title: m.original_title || m.original_name,
+      year: (m.release_date || m.first_air_date || "").slice(0,4) || "—",
       poster: m.poster_path ? `${TMDB_IMG}${m.poster_path}` : null,
     }));
   } catch { return []; }
 }
 
+// Liste recenti
+function getRecents() { return lsGet("cf_recents") || []; }
+function saveRecents(list) { lsSet("cf_recents", list); }
+function addRecent(code, name) {
+  const recents = getRecents().filter(r => r.code !== code);
+  recents.unshift({ code, name });
+  saveRecents(recents.slice(0, 5));
+}
+function removeRecent(code) {
+  saveRecents(getRecents().filter(r => r.code !== code));
+}
+
 export default function App() {
   const [screen, setScreen] = useState("landing");
   const [roomCode, setRoomCode] = useState("");
+  const [roomName, setRoomName] = useState("");
+  const [newName, setNewName] = useState("");
   const [joinVal, setJoinVal] = useState("");
   const [joinErr, setJoinErr] = useState("");
   const [creating, setCreating] = useState(false);
-  const [films, setFilms] = useState([]);
+  const [activeTab, setActiveTab] = useState("film");
+  const [filmsData, setFilmsData] = useState({ film: [], serie: [] });
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [searching, setSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [recents, setRecents] = useState(getRecents());
   const [toast, setToast] = useState(null);
   const [toastKey, setToastKey] = useState(0);
   const searchRef = useRef(null);
@@ -176,12 +216,6 @@ export default function App() {
     toastTimer.current = setTimeout(()=>setToast(null), 2400);
   };
 
-  // Ripristina ultima stanza
-  useEffect(()=>{
-    const last = lsGet("cf_last");
-    if (last) enterRoom(last, false, true);
-  }, []);
-
   useEffect(()=>{
     const h = e => { if(searchRef.current && !searchRef.current.contains(e.target)) setShowResults(false); };
     document.addEventListener("mousedown", h);
@@ -192,32 +226,41 @@ export default function App() {
     if (unsubRef.current) unsubRef.current();
     const listRef = ref(db, "lists/" + code);
     unsubRef.current = onValue(listRef, (snap) => {
-      if (snap.exists()) setFilms(snap.val());
-      else setFilms([]);
+      if (snap.exists()) {
+        const val = snap.val();
+        setFilmsData({
+          film: val.film || [],
+          serie: val.serie || [],
+        });
+      } else {
+        setFilmsData({ film: [], serie: [] });
+      }
     });
   };
 
-  const enterRoom = async (code, isNew, silent=false) => {
+  const enterRoom = async (code, isNew, name="") => {
     if (isNew) {
-      await saveList(code, []);
+      await saveList(code, { film: [], serie: [], name });
     } else {
       const existing = await loadList(code);
-      if (existing === null) {
-        if (!silent) setJoinErr("Codice non trovato.");
-        return false;
-      }
+      if (existing === null) { setJoinErr("Codice non trovato."); return false; }
+      name = existing.name || code;
     }
     setRoomCode(code);
-    lsSet("cf_last", code);
+    setRoomName(name);
+    addRecent(code, name);
+    setRecents(getRecents());
+    lsSet("cf_last", { code, name });
     startListening(code);
     setScreen("app");
     return true;
   };
 
   const handleCreate = async () => {
+    if (!newName.trim()) { setJoinErr("Dai un nome alla lista!"); return; }
     setCreating(true);
     const code = genCode();
-    await enterRoom(code, true);
+    await enterRoom(code, true, newName.trim());
     showToast("Lista creata! 🌿");
     setCreating(false);
   };
@@ -230,31 +273,55 @@ export default function App() {
     if (ok) showToast("Entrato! 🌿");
   };
 
-  const updateFilms = async (next) => {
-    setFilms(next);
-    await saveList(roomCode, next);
+  const goHome = () => {
+    if (unsubRef.current) unsubRef.current();
+    setScreen("landing");
+    setRoomCode("");
+    setRoomName("");
+    setQuery("");
+    setResults([]);
+    setShowResults(false);
+    setRecents(getRecents());
+  };
+
+  const updateFilms = async (category, next) => {
+    const newData = { ...filmsData, [category]: next, name: roomName };
+    setFilmsData(prev => ({ ...prev, [category]: next }));
+    await saveList(roomCode, newData);
   };
 
   const handleSearch = async () => {
     if (!query.trim()) return;
     setSearching(true); setShowResults(true); setResults([]);
-    const r = await searchFilms(query.trim());
+    const r = await searchFilms(query.trim(), activeTab);
     setResults(r); setSearching(false);
   };
 
-  const addFilm = async (film) => {
-    if (films.find(f=>f.id===film.id)) { showToast("Già in lista!"); return; }
-    await updateFilms([{...film, watched:false, addedAt:Date.now()}, ...films]);
+  const addItem = async (item) => {
+    const list = filmsData[activeTab] || [];
+    if (list.find(f=>f.id===item.id)) { showToast("Già in lista!"); return; }
+    await updateFilms(activeTab, [{...item, watched:false, addedAt:Date.now()}, ...list]);
     setQuery(""); setResults([]); setShowResults(false);
-    showToast(`"${film.title}" aggiunto ✓`);
+    showToast(`"${item.title}" aggiunto ✓`);
   };
 
-  const toggleWatched = (id) => updateFilms(films.map(f=>f.id===id?{...f,watched:!f.watched}:f));
-  const removeFilm = (id) => updateFilms(films.filter(f=>f.id!==id));
+  const toggleWatched = (id) => {
+    const list = filmsData[activeTab] || [];
+    updateFilms(activeTab, list.map(f=>f.id===id?{...f,watched:!f.watched}:f));
+  };
+
+  const removeItem = (id) => {
+    const list = filmsData[activeTab] || [];
+    updateFilms(activeTab, list.filter(f=>f.id!==id));
+  };
+
   const copyCode = () => { navigator.clipboard?.writeText(roomCode).catch(()=>{}); showToast(`Codice copiato: ${roomCode} 📋`); };
 
-  const toWatch = films.filter(f=>!f.watched);
-  const watched = films.filter(f=>f.watched);
+  const currentList = filmsData[activeTab] || [];
+  const toWatch = currentList.filter(f=>!f.watched);
+  const watched = currentList.filter(f=>f.watched);
+  const tabLabel = activeTab === "film" ? "🎬" : "📺";
+  const searchPlaceholder = activeTab === "film" ? "Cerca un film…" : "Cerca una serie o anime…";
 
   if (screen === "landing") return (
     <>
@@ -265,9 +332,12 @@ export default function App() {
           <div className="landing-title">CineForesta<span>watchlist condivisa</span></div>
           <p className="landing-sub">Crea una lista, condividi il codice con un amico, e decidete cosa vedere stasera.</p>
           <div className="landing-box">
-            <div className="landing-box-title">Inizia</div>
+            <div className="landing-box-title">Crea nuova lista</div>
+            <input className="name-input" placeholder="Nome della lista (es. Film con Marco)"
+              value={newName} onChange={e=>{setNewName(e.target.value);setJoinErr("");}}
+              onKeyDown={e=>e.key==="Enter"&&handleCreate()}/>
             <button className="create-btn" onClick={handleCreate} disabled={creating}>
-              {creating ? <span className="loading-dots"><span/><span/><span/></span> : "🎬 Crea nuova lista"}
+              {creating?<span className="loading-dots"><span/><span/><span/></span>:"🎬 Crea lista"}
             </button>
             <div className="divider">oppure entra con un codice</div>
             <div className="join-row">
@@ -278,6 +348,24 @@ export default function App() {
             </div>
             {joinErr && <div className="error-msg">⚠ {joinErr}</div>}
           </div>
+
+          {recents.length > 0 && (
+            <div className="recent-section">
+              <div className="recent-title">Liste recenti</div>
+              <div className="recent-list">
+                {recents.map(r=>(
+                  <div key={r.code} className="recent-item" onClick={()=>enterRoom(r.code, false)}>
+                    <span className="recent-icon">🌿</span>
+                    <div>
+                      <div className="recent-name">{r.name}</div>
+                      <div className="recent-code">{r.code}</div>
+                    </div>
+                    <button className="recent-del" onClick={e=>{e.stopPropagation();removeRecent(r.code);setRecents(getRecents());}}>✕</button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {toast && <div key={toastKey} className="toast">{toast}</div>}
@@ -289,14 +377,19 @@ export default function App() {
       <style>{STYLE}</style>
       <div className="app">
         <header>
-          <span className="header-leaf">🌿</span>
-          <div className="header-title">CineForesta<span>watchlist condivisa</span></div>
+          <span className="header-leaf" onClick={goHome}>🌿</span>
+          <div className="header-title">{roomName||"CineForesta"}<span>watchlist condivisa</span></div>
           <div className="share-pill" onClick={copyCode}>
             <span className="share-pill-label">Codice</span>
             <span className="share-code">{roomCode}</span>
             <span style={{color:"var(--beige-dark)"}}>📋</span>
           </div>
         </header>
+
+        <div className="tabs">
+          <button className={`tab${activeTab==="film"?" active":""}`} onClick={()=>{setActiveTab("film");setQuery("");setResults([]);setShowResults(false);}}>🎬 Film</button>
+          <button className={`tab${activeTab==="serie"?" active":""}`} onClick={()=>{setActiveTab("serie");setQuery("");setResults([]);setShowResults(false);}}>📺 Serie & Anime</button>
+        </div>
 
         <div className="sync-info">
           <span className="sync-dot"/>
@@ -306,7 +399,7 @@ export default function App() {
         <div ref={searchRef}>
           <div className="search-wrap">
             <div className="search-row">
-              <input className="search-input" placeholder="Cerca un film…"
+              <input className="search-input" placeholder={searchPlaceholder}
                 value={query} onChange={e=>setQuery(e.target.value)}
                 onKeyDown={e=>e.key==="Enter"&&handleSearch()}
                 onFocus={()=>results.length&&setShowResults(true)}/>
@@ -318,14 +411,14 @@ export default function App() {
               <div className="search-results">
                 {searching && <div className="no-results">Ricerca in corso…</div>}
                 {!searching && results.length===0 && <div className="no-results">Nessun risultato trovato.</div>}
-                {!searching && results.map(film=>(
-                  <div key={film.id} className="result-item" onClick={()=>addFilm(film)}>
-                    {film.poster
-                      ? <img src={film.poster} alt={film.title} className="result-poster-img"/>
-                      : <div className="result-poster-ph">🎬</div>}
+                {!searching && results.map(item=>(
+                  <div key={item.id} className="result-item" onClick={()=>addItem(item)}>
+                    {item.poster
+                      ? <img src={item.poster} alt={item.title} className="result-poster-img"/>
+                      : <div className="result-poster-ph">{activeTab==="film"?"🎬":"📺"}</div>}
                     <div>
-                      <div className="result-title">{film.title}</div>
-                      <div className="result-year">{film.original_title&&film.original_title!==film.title?`${film.original_title} · `:""}{film.year}</div>
+                      <div className="result-title">{item.title}</div>
+                      <div className="result-year">{item.original_title&&item.original_title!==item.title?`${item.original_title} · `:""}{item.year}</div>
                     </div>
                   </div>
                 ))}
@@ -335,16 +428,16 @@ export default function App() {
         </div>
 
         <div className="section-label">
-          🎬 Da vedere {toWatch.length>0&&<span className="count-badge">{toWatch.length}</span>}
+          {tabLabel} Da vedere {toWatch.length>0&&<span className="count-badge">{toWatch.length}</span>}
         </div>
         {toWatch.length===0
-          ?<div className="empty">Cerca un film per aggiungerlo alla lista…</div>
-          :<div className="grid">{toWatch.map((f,i)=><Card key={f.id} film={f} index={i} onToggle={toggleWatched} onRemove={removeFilm}/>)}</div>}
+          ?<div className="empty">Cerca qualcosa per aggiungerlo alla lista…</div>
+          :<div className="grid">{toWatch.map((f,i)=><Card key={f.id} film={f} index={i} tab={activeTab} onToggle={toggleWatched} onRemove={removeItem}/>)}</div>}
 
         {watched.length>0&&(
           <div className="watched-section">
-            <div className="section-label">Film visti 🙃 <span className="count-badge">{watched.length}</span></div>
-            <div className="grid">{watched.map((f,i)=><Card key={f.id} film={f} index={i} onToggle={toggleWatched} onRemove={removeFilm}/>)}</div>
+            <div className="section-label">{activeTab==="film"?"Film visti":"Visti"} 🙃 <span className="count-badge">{watched.length}</span></div>
+            <div className="grid">{watched.map((f,i)=><Card key={f.id} film={f} index={i} tab={activeTab} onToggle={toggleWatched} onRemove={removeItem}/>)}</div>
           </div>
         )}
       </div>
@@ -353,7 +446,7 @@ export default function App() {
   );
 }
 
-function Card({film, index, onToggle, onRemove}) {
+function Card({film, index, tab, onToggle, onRemove}) {
   const [imgErr, setImgErr] = useState(false);
   return (
     <div className={`card${film.watched?" watched":""}`} style={{animationDelay:`${index*0.05}s`}}>
@@ -363,7 +456,7 @@ function Card({film, index, onToggle, onRemove}) {
       <button className="card-del" onClick={()=>onRemove(film.id)}>✕</button>
       {film.poster&&!imgErr
         ?<img src={film.poster} alt={film.title} className="card-poster" onError={()=>setImgErr(true)}/>
-        :<div className="poster-ph">🎬</div>}
+        :<div className="poster-ph">{tab==="film"?"🎬":"📺"}</div>}
       <div className="card-info">
         <div className="card-title">{film.title}</div>
         <div className="card-year">{film.year}</div>
