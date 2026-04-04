@@ -275,6 +275,17 @@ export default function App() {
     return ()=>document.removeEventListener("mousedown", h);
   },[]);
 
+  useEffect(()=>{
+    const last = lsGet("cf_last");
+    if(last?.code){
+      setRoomCode(last.code);
+      setRoomName(last.name||last.code);
+      startListening(last.code);
+      setScreen("app");
+    }
+  // eslint-disable-next-line
+  },[]);
+
   const startListening = (code) => {
     if (unsubRef.current) unsubRef.current();
     const listRef = ref(db, "lists/" + code);
