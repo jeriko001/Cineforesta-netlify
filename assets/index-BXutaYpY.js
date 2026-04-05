@@ -1675,7 +1675,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
   .recent-code{font-size:.72rem;color:var(--text-light);font-family:monospace;letter-spacing:.1em;margin-top:2px;}
   .recent-del{margin-left:auto;background:none;border:none;color:var(--text-light);cursor:pointer;font-size:1rem;padding:4px;flex-shrink:0;}
 
-  header{background:var(--forest);padding:17px 18px 13px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 18px rgba(45,80,22,.18);width:100%;}
+  header{background:var(--forest);padding:17px 18px 13px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 18px rgba(45,80,22,.18);width:100%;}
   .header-leaf{font-size:1.3rem;flex-shrink:0;cursor:pointer;}
   .header-title{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--beige);letter-spacing:.03em;line-height:1;min-width:0;flex:1;}
   .header-title span{color:var(--beige-dark);font-style:italic;font-size:.76rem;display:block;font-weight:400;margin-top:2px;letter-spacing:.07em;}
