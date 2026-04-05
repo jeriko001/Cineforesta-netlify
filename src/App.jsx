@@ -406,7 +406,7 @@ export default function App(){
       <div className="app">
         <header>
           <span className="header-leaf" onClick={goHome}>🌿</span>
-          <div className="header-title">PocketList</div>
+
           <div className="header-right">
             <div className="notes-btn" onClick={pickSuggestion} title="Suggerimento">💡</div>
             <div className="notes-btn" onClick={()=>setShowNotes(true)} title="Note">📝</div>
@@ -418,14 +418,14 @@ export default function App(){
           </div>
         </header>
 
+        <div className="list-name">{roomName}</div>
+        <div className="sync-info"><span className="sync-dot"/>Sincronizzata in tempo reale · codice:&nbsp;<strong style={{color:"var(--forest)"}}>{roomCode}</strong></div>
+
         <div className="tabs">
           <button className={`tab${activeTab==="film"?" active":""}`} onClick={()=>{setActiveTab("film");setQuery("");setResults([]);setShowResults(false);}}>🎬 Film</button>
           <button className={`tab${activeTab==="serie"?" active":""}`} onClick={()=>{setActiveTab("serie");setQuery("");setResults([]);setShowResults(false);}}>📺 Serie</button>
           <button className={`tab${activeTab==="musica"?" active":""}`} onClick={()=>{setActiveTab("musica");setQuery("");setResults([]);setShowResults(false);}}>🎵 Musica</button>
         </div>
-
-        <div className="list-name">{roomName}</div>
-        <div className="sync-info"><span className="sync-dot"/>Sincronizzata in tempo reale · codice:&nbsp;<strong style={{color:"var(--forest)"}}>{roomCode}</strong></div>
 
         <div ref={searchRef}>
           <div className="search-wrap">
